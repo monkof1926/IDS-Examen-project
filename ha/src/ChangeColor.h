@@ -1,34 +1,39 @@
-#include <Arduino.h>
+#include <Arduino.h> //libaries need to run the program
 #include <WiFi.h>
-#include <AsyncUDP.h> 
+#include <AsyncUDP.h>
 
-class button{
- int PushButton;
- AsyncUDP UDP;
-int port = 7000;
+/*creates a button class that changes the color of the pixel */
+class button
+{
+    int PushButton;  // the pin for the button
+    AsyncUDP UDP;    // creates an AsyncUDP object
+    int port = 7000; // assign a port to broadcast to
 
 public:
-
-button(int PushButton){
-    this -> PushButton = PushButton;
-    pinMode(this -> PushButton,INPUT);
-}
-
-bool ButtonChange()
+    //creates a constrotur for the button and set the pinMode for the button
+    button(int PushButton)
+    {
+        this->PushButton = PushButton;
+        pinMode(this->PushButton, INPUT);
+    }
+    // see if the button have been pressed
+    bool ButtonChange()
+    {
+        if (digitalRead(PushButton) == LOW)
         {
-            if (digitalRead(PushButton) == LOW)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
         }
-
- void changeColor(){
-     if(ButtonChange() == true){
-       UDP.broadcastTo("color 255 8 127", port);
-     }
- }
+        else
+        {
+            return false;
+        }
+    }
+    // change the color to pink if the button has pressed
+    void changeColor()
+    {
+        if (ButtonChange() == true)
+        {
+            UDP.broadcastTo("color 255 8 127", port);
+        }
+    }
 };
