@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <top>
+        <FlowPane BorderPane.alignment="CENTER">
+            <children>
+                <Label text="The Therizinosaurus Server">
+                    <font>
+                        <Font size="37.0" />
+                    </font>
+                </Label>
+            </children></FlowPane>
+    </top>
+    <center>
+        <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn prefWidth="164.0" text="Time" />
+                <TableColumn prefWidth="291.0" text="Message" />
+                <TableColumn prefWidth="66.0" text="length" />
+                <TableColumn prefWidth="72.0" text="IP" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox BorderPane.alignment="CENTER">
+            <children>
+                <Button mnemonicParsing="false" onAction="#clearTable" text="Clear Table">
+                    <HBox.margin>
+                        <Insets left="4.0" top="4.0" />
+                    </HBox.margin></Button>
+                <VBox prefHeight="50.0" prefWidth="532.0">
+                    <children>
+                        <FlowPane alignment="TOP_RIGHT">
+                            <children>
+                                <Label text="turn echo server on/off" />
+                                <ToggleButton mnemonicParsing="false" onAction="#toggleBtnEchoServer" text="ON">
+                                    <FlowPane.margin>
+                                        <Insets left="8.0" right="4.0" top="4.0" />
+                                    </FlowPane.margin>
+                                </ToggleButton>
+                            </children></FlowPane>
+                        <FlowPane alignment="TOP_RIGHT">
+                            <children>
+                                <Label text="broadcasting" />
+                                <ToggleButton mnemonicParsing="false" onAction="#toggleBroadcastBtn" text="ON">
+                                    <FlowPane.margin>
+                                        <Insets left="8.0" right="4.0" top="4.0" />
+                                    </FlowPane.margin>
+                                </ToggleButton>
+                            </children></FlowPane>
+                    </children></VBox>
+            </children></HBox>
+    </bottom>
+</BorderPane>
